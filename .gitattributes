@@ -1,0 +1,2 @@
+# Ensure all CSV files use LF.
+*.csv         eol=lf
