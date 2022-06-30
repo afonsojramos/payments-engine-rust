@@ -37,7 +37,7 @@ At the crate's root is the `Error` type, which represents any error that can occ
 The `Error` type is divided into parsing errors, runtime errors, and miscellaneous/other errors.
 While the parsing errors and runtime errors are their own types, miscellaneous errors are simply represented by a string message.
 
-All error types have `std::fmt::Display` implemented, as such it is necessary for the main function to be a wrapper of a seperate function, called `run` for simplicity's sake.
+All error types have `std::fmt::Display` implemented, as such it is necessary for the main function to be a wrapper of a separate function, called `run` for simplicity's sake.
 This wrapper prints the error using `eprintln` and exits with a code of 1.
 Returning the `Result` type directly from main causes the error to be printed using the debug formatter instead of the display formatter.
 
@@ -46,3 +46,7 @@ Returning the `Result` type directly from main causes the error to be printed us
 This program sees the transaction CSV file as a list of commands with arguments to execute sequentially.
 As such, the type representing a single row of the CSV file is called a `PaymentCommand`.
 This pattern is easily extensible by simply adding more variants to the `PaymentCommand` enum and completing all of the match arms.
+
+## Library Usage
+
+Due to the simplicity of reading from a csv, I have refrained from using the `csv` crate, as it would be redundant in a way.
